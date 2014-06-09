@@ -29,7 +29,7 @@ echo "Copying u-boot files to image"
 mcopy $UBOOT_DIR/* I:
 
 echo "Appending haiku-bootstrap.image to image file"
-dd if=../haiku-bootstrap.image of=$FILE bs=1M count=328 conv=notrunc oflag=append
+dd if=../haiku-bootstrap.image of=$FILE bs=1M count=`du -sh ../haiku-bootstrap.image | cut -f 1` conv=notrunc oflag=append
 
 echo "Deleting config.mtools"
 rm config.mtools
