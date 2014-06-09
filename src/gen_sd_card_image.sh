@@ -34,5 +34,8 @@ dd if=../haiku-bootstrap.image of=$FILE bs=1M count=328 conv=notrunc oflag=appen
 echo "Deleting config.mtools"
 rm config.mtools
 
+echo "Deleting haiku_loader_nbsd.ub"
+rm $UBOOT_DIR/haiku_loader_nbsd.ub
+
 echo "Running qemu"
 qemu-system-arm -M beaglexm -drive if=sd,file=./$FILE -clock unix -serial stdio -s
