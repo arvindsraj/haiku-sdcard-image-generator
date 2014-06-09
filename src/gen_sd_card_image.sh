@@ -31,5 +31,8 @@ mcopy $UBOOT_DIR/* I:
 echo "Appending haiku-bootstrap.image to image file"
 dd if=../haiku-bootstrap.image of=$FILE bs=1M count=328 conv=notrunc oflag=append
 
+echo "Deleting config.mtools"
+rm config.mtools
+
 echo "Running qemu"
 qemu-system-arm -M beaglexm -drive if=sd,file=./$FILE -clock unix -serial stdio -s
